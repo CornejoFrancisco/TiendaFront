@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './components/Home'; // Ejemplo: importa el componente Home aquí
+import PaginaPrincipal from './components/PaginaPrincipal';
 
 function App() {
   return (
@@ -9,9 +9,9 @@ function App() {
       <div>
 
         <Routes>
-          <Route path="/" element={<Home />} /> {/* Ejemplo: define la ruta para Home */}
+          <Route path="/" element={<PaginaPrincipal />} /> {/* Ejemplo: define la ruta para Home */}
           {/* Define otras rutas aquí usando Route */}
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<PaginaPrincipal />} />
         
         </Routes>
 

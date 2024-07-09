@@ -1,39 +1,29 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
-import Card_Articulo from './CardArticulo'; // Asegúrate de importar correctamente el componente CardArticulo
+import { Card, Button } from 'react-bootstrap';
 
-const articlesData = [
-  { id: 1, title: 'Artículo 1', description: 'Descripción del artículo 1' },
-  { id: 2, title: 'Artículo 2', description: 'Descripción del artículo 2' },
-  { id: 3, title: 'Artículo 3', description: 'Descripción del artículo 3' },
-  { id: 1, title: 'Artículo 1', description: 'Descripción del artículo 1' },
-  { id: 2, title: 'Artículo 2', description: 'Descripción del artículo 2' },
-  { id: 3, title: 'Artículo 3', description: 'Descripción del artículo 3' },
-  { id: 1, title: 'Artículo 1', description: 'Descripción del artículo 1' },
-  { id: 2, title: 'Artículo 2', description: 'Descripción del artículo 2' },
-  { id: 3, title: 'Artículo 3', description: 'Descripción del artículo 3' },
-  { id: 1, title: 'Artículo 1', description: 'Descripción del artículo 1' },
-  { id: 2, title: 'Artículo 2', description: 'Descripción del artículo 2' },
-  { id: 3, title: 'Artículo 3', description: 'Descripción del artículo 3' },
-  { id: 1, title: 'Artículo 1', description: 'Descripción del artículo 1' },
-  { id: 2, title: 'Artículo 2', description: 'Descripción del artículo 2' },
-  { id: 3, title: 'Artículo 3', description: 'Descripción del artículo 3' },
-
-  // Agrega más datos de artículos según sea necesario
-];
-
-const ArticlesList = () => {
+const ArticlesList = ({ items }) => {
   return (
     <div className="container">
       <div className="row">
-        {articlesData.map(article => (
-          <div key={article.id} className="col-md g-4">
-            <Card_Articulo title={article.title} description={article.description} />
-          </div>
-        ))}
+        {Array.isArray(items) && items.length > 0 ? (
+          items.map((item, index) => (
+            <div className="col-4" key={`item-${index}`}>
+              <Card style={{ width: '20rem', marginBottom: '20px' }}>
+                <Card.Img variant="top" src="holder.js/50px180" />
+                <Card.Body>
+                  <Card.Title>{item.nombre}</Card.Title>
+                  <Card.Text>{item.description}</Card.Text>
+                  <Button variant="primary">Agregar</Button>
+                </Card.Body>
+              </Card>
+            </div>
+          ))
+        ) : (
+          <p>No hay artículos para mostrar</p>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default ArticlesList;
