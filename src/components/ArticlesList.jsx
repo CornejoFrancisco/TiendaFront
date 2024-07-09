@@ -1,3 +1,4 @@
+// ArticlesList.js
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
@@ -9,7 +10,7 @@ const ArticlesList = ({ items }) => {
           items.map((item, index) => (
             <div className="col-4" key={`item-${index}`}>
               <Card style={{ width: '20rem', marginBottom: '20px' }}>
-                <Card.Img variant="top" src="holder.js/50px180" />
+                <Card.Img variant="top" src={item.image || 'holder.js/100px180'} />
                 <Card.Body>
                   <Card.Title>{item.nombre}</Card.Title>
                   <Card.Text>{item.description}</Card.Text>
